@@ -1,38 +1,94 @@
 # Modern Calculator
 
-A modern calculator built using HTML, CSS, and JavaScript.
+A modern calculator built using **HTML, CSS, and Vanilla JavaScript**.
 
-## Project Status
+This project is being developed incrementally to strengthen my understanding of DOM manipulation, event handling, state management, and modern JavaScript.
 
-🚧 Currently under development.
+---
 
-The UI has been completed and the calculator logic is being implemented.
+## Current Features
+
+- ✅ Modern responsive UI
+- ✅ Number input
+- ✅ Basic operator input
+- ✅ AC (All Clear)
+- ✅ DEL (Delete Last Character)
+- ✅ Expression evaluation (`=`)
+- ✅ Error handling for invalid expressions
+- ✅ Continue calculations using previous result
+- ✅ Event Delegation for button handling
+
+---
 
 ## Planned Features
 
-- Full expression editing
-- Cursor-based insertion
-- Delete from any cursor position
+- Smart operator validation
+- Decimal validation
+- Automatic leading zero (`0.`)
 - Keyboard support
-- Operator validation
-- Parentheses support
-- Responsive design
+- Parentheses validation
 - Calculation history
+- Theme switcher
+- Scientific calculator mode
+
+---
 
 ## Tech Stack
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla)
+- Vanilla JavaScript
 
-## Progress
+---
 
-- ✅ Modern UI completed
-- ✅ Responsive layout
-- ⏳ Calculator logic in progress
-- ⏳ Expression evaluation
-- ⏳ Keyboard shortcuts
+## Project Structure
+
+```
+Calculator/
+│── index.html
+│── style.css
+└── script.js
+```
+
+---
+
+## Learning Goals
+
+This project is helping me practice:
+
+- DOM Manipulation
+- Event Delegation
+- JavaScript Events
+- Expression Handling
+- Error Handling
+- State Management
+- Responsive UI Design
+
+---
+
+## Development Progress
+
+| Phase | Status |
+|--------|--------|
+| UI Design | ✅ Completed |
+| Calculator Foundation | ✅ Completed |
+| Expression Evaluation | ✅ Completed |
+| Smart Input Validation | ⏳ Planned |
+| Keyboard Support | ⏳ Planned |
+| Final Polish | ⏳ Planned |
+
+---
+
+## Future Improvements
+
+- Replace `eval()` with a custom expression parser
+- Add calculation history
+- Add keyboard shortcuts
+- Add scientific calculator mode
+- Improve accessibility
+
+---
 
 ## Author
 
-Shubham Kulkarni
+**Shubham Kulkarni**
