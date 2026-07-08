@@ -17,6 +17,10 @@ This project is being developed incrementally to strengthen my understanding of 
 - ✅ Error handling for invalid expressions
 - ✅ Continue calculations using previous result
 - ✅ Event Delegation for button handling
+- ✅ Decimal validation
+- ✅ Leading zero handling
+- ✅ Parentheses validation
+- ✅ Smart operator replacement
 
 ---
 
@@ -73,7 +77,7 @@ This project is helping me practice:
 | UI Design | ✅ Completed |
 | Calculator Foundation | ✅ Completed |
 | Expression Evaluation | ✅ Completed |
-| Smart Input Validation | ⏳ Planned |
+| Smart Input Validation |✅ Completed |
 | Keyboard Support | ⏳ Planned |
 | Final Polish | ⏳ Planned |
 
