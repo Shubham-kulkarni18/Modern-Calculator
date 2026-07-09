@@ -10,30 +10,31 @@ This project is being developed incrementally to strengthen my understanding of 
 
 - ✅ Modern responsive UI
 - ✅ Number input
-- ✅ Basic operator input
+- ✅ Basic operator support (+, -, ×, ÷)
+- ✅ Parentheses support
 - ✅ AC (All Clear)
 - ✅ DEL (Delete Last Character)
 - ✅ Expression evaluation (`=`)
-- ✅ Error handling for invalid expressions
-- ✅ Continue calculations using previous result
-- ✅ Event Delegation for button handling
+- ✅ Smart operator replacement
 - ✅ Decimal validation
 - ✅ Leading zero handling
 - ✅ Parentheses validation
-- ✅ Smart operator replacement
+- ✅ Continue calculations using previous result
+- ✅ Error handling for invalid expressions
+- ✅ Event Delegation
+- ✅ Modular JavaScript architecture using helper and handler functions
 
 ---
 
 ## Planned Features
 
-- Smart operator validation
-- Decimal validation
-- Automatic leading zero (`0.`)
-- Keyboard support
-- Parentheses validation
-- Calculation history
-- Theme switcher
-- Scientific calculator mode
+- ⌨️ Keyboard support
+- 📜 Calculation history
+- 🌗 Light/Dark theme
+- 📱 Better mobile experience
+- ➗ Percentage (`%`) support
+- 🧮 Scientific calculator mode
+- 🚀 Replace `eval()` with a custom expression parser
 
 ---
 
@@ -64,8 +65,11 @@ This project is helping me practice:
 - Event Delegation
 - JavaScript Events
 - Expression Handling
-- Error Handling
 - State Management
+- Error Handling
+- Code Refactoring
+- Writing Reusable Helper Functions
+- Modular JavaScript Architecture
 - Responsive UI Design
 
 ---
@@ -77,18 +81,23 @@ This project is helping me practice:
 | UI Design | ✅ Completed |
 | Calculator Foundation | ✅ Completed |
 | Expression Evaluation | ✅ Completed |
-| Smart Input Validation |✅ Completed |
-| Keyboard Support | ⏳ Planned |
-| Final Polish | ⏳ Planned |
+| Smart Input Validation | ✅ Completed |
+| Code Refactoring | ✅ Completed |
+| Keyboard Support | ⏳ Next |
+| Calculation History | ⏳ Planned |
+| Theme Support | ⏳ Planned |
+| Scientific Mode | ⏳ Planned |
 
 ---
 
 ## Future Improvements
 
 - Replace `eval()` with a custom expression parser
-- Add calculation history
 - Add keyboard shortcuts
-- Add scientific calculator mode
+- Add calculation history
+- Add percentage (`%`) support
+- Add scientific calculator functions
+- Add multiple themes
 - Improve accessibility
 
 ---
