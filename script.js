@@ -58,7 +58,19 @@ function showError() {
     display.value = "ERROR";
 }
 
+function appendToExpression(value) {
+    expression += value;
+    updateDisplay();
+}
 
+function removeLastChar(){
+    expression = expression.slice(0,-1);
+}
+
+function setExpression(value){
+    expression = value;
+    updateDisplay();
+}
 
 // HANDLER FUNCTIONS -->
 
@@ -66,8 +78,7 @@ function handleOpeningBrackets(){
     if(justCalculated){
         resetCalculator();
         openBrackets++;
-        expression += "(";
-        updateDisplay();
+        appendToExpression("(");
         return;
     }
 
@@ -78,8 +89,7 @@ function handleOpeningBrackets(){
             return;
     }
     openBrackets++;
-    expression += "(";
-    updateDisplay();
+    appendToExpression("(");
 }
 
 function handleClosingBrackets(){
@@ -90,8 +100,7 @@ function handleClosingBrackets(){
     if( openBrackets ===0 || isBinaryOperator(lastchar) || lastchar === "(" || lastchar === ".") return;
 
     openBrackets--;
-    expression += ")";
-    updateDisplay();
+    appendToExpression(")");
 }
 
 function handleMinus(){
@@ -103,11 +112,10 @@ function handleMinus(){
         if(lastchar === "-") return;
 
         if(lastchar === "+"){
-            expression = expression.slice(0,-1);
+            removeLastChar();
         }
     }
-    expression += "-";
-    updateDisplay();
+    appendToExpression("-");
 }
 
 
@@ -119,14 +127,14 @@ function handleNumber(val){
     
     const current = getCurrentNumber();
     if(current === "0")
-        expression = expression.slice(0,-1);
+        removeLastChar();
     
-    if(justCalculated)
-        expression = val;
+    if(justCalculated){
+        setExpression(val);
+    }
     else
-        expression += val;
+        appendToExpression(val);
 
-    updateDisplay();
     justCalculated = false;
 }
 
@@ -138,14 +146,15 @@ function handleDecimal(){
         return;
     }
     
-    if(justCalculated) expression ="0.";
+    if(justCalculated) {
+        setExpression("0.");
+    }
     
     else if(isExpressionEmpty() || isBinaryOperator(lastchar) || lastchar === "(") 
-        expression += "0.";
+        appendToExpression("0.");
     
     else
-        expression += ".";
-    updateDisplay();
+       appendToExpression(".");
     justCalculated = false;
 }
 
@@ -158,12 +167,11 @@ function handleBinaryOperator(val){
     if(lastchar === "(" || lastchar === ".") return;
 
     while( isBinaryOperator(lastchar) ){
-        expression = expression.slice(0,-1);
+        removeLastChar();
         lastchar = getLastCharacter();
     }
 
-    expression += val;
-    updateDisplay();
+    appendToExpression(val);
 }
 
 function handleOperators(val){
@@ -201,8 +209,7 @@ function handleEqual(){
         return;
     }
     try{
-        expression = String(eval(expression));
-        updateDisplay();
+        setExpression(String(eval(expression)));
         justCalculated = true;
         openBrackets = 0;
     }
@@ -217,20 +224,15 @@ function handleDelete(){
         if(lastchar === ")") openBrackets++;
         else if(lastchar === "(") openBrackets--;
 
-        expression = expression.slice(0,-1);
+        removeLastChar();
         justCalculated = false;
     }
     updateDisplay();
 }
 
-calculator.addEventListener("click",(event)=>{
 
-    if(event.target.tagName!=="BUTTON")
-        return;
-
-    const value=event.target.innerText;
-
-    if(value==="AC"){
+function handleInput(value){
+    if(value === "AC"){
         resetCalculator();
         return;
     }
@@ -240,12 +242,11 @@ calculator.addEventListener("click",(event)=>{
         return;
     }
 
-    if(value==="="){
+    if(value === "="){
         handleEqual();
         return;
     }
-
-    if(value==="."){
+    if(value === "."){
         handleDecimal();
         return;
     }
@@ -259,5 +260,50 @@ calculator.addEventListener("click",(event)=>{
         handleOperators(value);
         return;
     }
+}
+
+const keyboardMap = {
+    "Escape": "AC",
+    "Backspace": "DEL",
+    "Enter": "="
+};
+
+function handleKeyboardInput(key){
+
+    handleInput(keyboardMap[key] || key);
+}
+
+//EVENTS
+
+calculator.addEventListener("click",(event)=>{
+
+    if(event.target.tagName!=="BUTTON")
+        return;
+
+    handleInput(event.target.innerText);
 
 });
+
+document.addEventListener("keydown",(event)=>{
+    const supportedKeys = [
+        "Enter",
+        "Backspace",
+        "Escape",
+        "(",
+        ")",
+        ".",
+        "+",
+        "-",
+        "*",
+        "/"
+    ];
+
+    if (
+        isDigit(event.key) ||
+        supportedKeys.includes(event.key)
+    ) {
+        event.preventDefault();
+    }
+
+    handleKeyboardInput(event.key);
+})

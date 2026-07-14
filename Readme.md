@@ -22,13 +22,15 @@ This project is being developed incrementally to strengthen my understanding of 
 - ✅ Continue calculations using previous result
 - ✅ Error handling for invalid expressions
 - ✅ Event Delegation
-- ✅ Modular JavaScript architecture using helper and handler functions
+- ✅ Keyboard support
+- ✅ Shared input handling for mouse and keyboard
+- ✅ Modular JavaScript architecture
+- ✅ Helper and Handler function separation
 
 ---
 
 ## Planned Features
 
-- ⌨️ Keyboard support
 - 📜 Calculation history
 - 🌗 Light/Dark theme
 - 📱 Better mobile experience
@@ -52,7 +54,9 @@ This project is being developed incrementally to strengthen my understanding of 
 Calculator/
 │── index.html
 │── style.css
-└── script.js
+│── script.js
+│── README.md
+└── TIL.md
 ```
 
 ---
@@ -71,6 +75,9 @@ This project is helping me practice:
 - Writing Reusable Helper Functions
 - Modular JavaScript Architecture
 - Responsive UI Design
+- Keyboard Event Handling
+- Event Translation (Keyboard → Calculator Actions)
+- Modular Code Organization
 
 ---
 
@@ -83,8 +90,8 @@ This project is helping me practice:
 | Expression Evaluation | ✅ Completed |
 | Smart Input Validation | ✅ Completed |
 | Code Refactoring | ✅ Completed |
-| Keyboard Support | ⏳ Next |
-| Calculation History | ⏳ Planned |
+| Keyboard Support | ✅ Completed |
+| Calculation History | ⏳ Next |
 | Theme Support | ⏳ Planned |
 | Scientific Mode | ⏳ Planned |
 
@@ -92,15 +99,18 @@ This project is helping me practice:
 
 ## Future Improvements
 
-- Replace `eval()` with a custom expression parser
-- Add keyboard shortcuts
-- Add calculation history
-- Add percentage (`%`) support
-- Add scientific calculator functions
-- Add multiple themes
-- Improve accessibility
+- 📜 Calculation history
+- 🌗 Light/Dark theme
+- 📱 Better mobile experience
+- ➗ Percentage (`%`) support
+- 🧮 Scientific calculator mode
+- 🚀 Replace `eval()` with a custom expression parser
 
 ---
+
+## Documentation
+
+This repository also includes a **TIL.md (Today I Learned)** file where I document the concepts, JavaScript techniques, and lessons I learn while building this project.
 
 ## Author
 
