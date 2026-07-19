@@ -1,8 +1,11 @@
 # Modern Calculator
+Unlike a basic calculator that only appends characters, this project supports cursor-aware editing, allowing expressions to be modified at any position using both the mouse and keyboard.
 
 A modern calculator built using **HTML, CSS, and Vanilla JavaScript**.
 
 This project is being developed incrementally to strengthen my understanding of DOM manipulation, event handling, state management, and modern JavaScript.
+
+
 
 ---
 
@@ -26,6 +29,11 @@ This project is being developed incrementally to strengthen my understanding of 
 - ✅ Shared input handling for mouse and keyboard
 - ✅ Modular JavaScript architecture
 - ✅ Helper and Handler function separation
+- ✅ Cursor editing support
+- ✅ Cursor-aware expression editing
+- ✅ Arrow key navigation
+- ✅ Home / End key support
+- ✅ Forward Delete support
 
 ---
 
@@ -34,7 +42,7 @@ This project is being developed incrementally to strengthen my understanding of 
 - 📜 Calculation history
 - 🌗 Light/Dark theme
 - 📱 Better mobile experience
-- ➗ Percentage (`%`) support
+- ➗ Complete percentage operator support
 - 🧮 Scientific calculator mode
 - 🚀 Replace `eval()` with a custom expression parser
 
@@ -78,6 +86,10 @@ This project is helping me practice:
 - Keyboard Event Handling
 - Event Translation (Keyboard → Calculator Actions)
 - Modular Code Organization
+- Cursor Management
+- Caret Position Tracking
+- Keyboard Navigation
+- Expression Editing
 
 ---
 
@@ -91,6 +103,7 @@ This project is helping me practice:
 | Smart Input Validation | ✅ Completed |
 | Code Refactoring | ✅ Completed |
 | Keyboard Support | ✅ Completed |
+| Cursor Editing  | ✅ Completed |
 | Calculation History | ⏳ Next |
 | Theme Support | ⏳ Planned |
 | Scientific Mode | ⏳ Planned |

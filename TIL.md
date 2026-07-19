@@ -24,3 +24,14 @@
 - Implementing keyboard support using `keydown` events
 - Mapping keyboard keys to calculator actions
 - Designing cleaner and more maintainable JavaScript code
+
+## Day 5
+
+- Implemented cursor-based editing instead of only appending characters
+- Learned how to track the caret position using `selectionStart`
+- Used `slice()` to insert and delete characters at arbitrary cursor positions
+- Implemented Backspace and Forward Delete behavior
+- Added keyboard navigation using Arrow Left, Arrow Right, Home, and End keys
+- Refactored helper functions to make them cursor-aware
+- Learned why separating helper functions from handler functions improves maintainability
+- Improved input validation while editing expressions in the middle of the string
