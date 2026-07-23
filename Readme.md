@@ -33,16 +33,21 @@ This project is being developed incrementally to strengthen my understanding of 
 - ✅ Cursor-aware expression editing
 - ✅ Arrow key navigation
 - ✅ Home / End key support
-- ✅ Forward Delete support
+- ✅ Forward Delete support 
+- ✅ Calculation history
+- ✅ Persistent history using Local Storage
+- ✅ Click history items to reload expressions
+- ✅ Clear history
+- ✅ Automatic history limit (50 calculations)
+
 
 ---
 
 ## Planned Features
 
-- 📜 Calculation history
 - 🌗 Light/Dark theme
 - 📱 Better mobile experience
-- ➗ Complete percentage operator support
+- ➗ Advanced percentage calculations
 - 🧮 Scientific calculator mode
 - 🚀 Replace `eval()` with a custom expression parser
 
@@ -53,6 +58,7 @@ This project is being developed incrementally to strengthen my understanding of 
 - HTML5
 - CSS3
 - Vanilla JavaScript
+- Browser Local Storage
 
 ---
 
@@ -63,6 +69,7 @@ Calculator/
 │── index.html
 │── style.css
 │── script.js
+│── history.js
 │── README.md
 └── TIL.md
 ```
@@ -90,6 +97,10 @@ This project is helping me practice:
 - Caret Position Tracking
 - Keyboard Navigation
 - Expression Editing
+- Local Storage
+- Data Persistence
+- Event Delegation
+- State Synchronization
 
 ---
 
@@ -104,8 +115,8 @@ This project is helping me practice:
 | Code Refactoring | ✅ Completed |
 | Keyboard Support | ✅ Completed |
 | Cursor Editing  | ✅ Completed |
-| Calculation History | ⏳ Next |
-| Theme Support | ⏳ Planned |
+| Calculation History | ✅ Completed |
+| Theme Support | ⏳ Next|
 | Scientific Mode | ⏳ Planned |
 
 ---

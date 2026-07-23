@@ -19,6 +19,14 @@ const postfixOperators = ["%"];
 
 //HELPER FUNCTIONS -->
 
+function loadExpression(value){
+
+    setExpression(value);
+
+    justCalculated = false;
+
+}
+
 function isDigit(val){
     return val>="0" && val <="9";
 }
@@ -359,11 +367,19 @@ function handleEqual(){
         return;
     }
     try{
+
+        const originalExpression = expression;
+
         const processedExpression = preprocessPercentage(expression);
 
-        setExpression(String(eval(processedExpression)));
+        const result = String(eval(processedExpression));
+
+        saveCalculation(originalExpression, result);
+
+        setExpression(result);
 
         justCalculated = true;
+
         openBrackets = 0;
     }
     catch{
@@ -475,7 +491,7 @@ function handleKeyboardInput(key){
     handleInput(keyboardMap[key] || key);
 }
 
-//EVENTS
+// ===== Event Listeners =====
 
 calculator.addEventListener("click",(event)=>{
 

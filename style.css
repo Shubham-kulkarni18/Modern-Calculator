@@ -149,3 +149,107 @@ button:active{
 
     font-size:1.5rem;
 }   
+
+.calculator-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
+}
+
+.history-panel{
+
+    width:100%;
+    max-width:420px;
+
+    background:#1f1f1f;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    box-sizing:border-box;
+}
+
+.history-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.history-header h3{
+
+    margin:0;
+
+    font-size:20px;
+}
+
+#clear-history{
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+}
+
+#history-list{
+
+    max-height:220px;
+
+    overflow-y:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.empty-history{
+
+    text-align:center;
+
+    opacity:0.6;
+
+    margin:20px 0;
+}
+
+.history-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.history-item:hover{
+
+    background:rgba(255,255,255,0.08);
+}
+
+.history-expression{
+
+    font-weight:500;
+}
+
+.history-result{
+
+    font-weight:bold;
+}

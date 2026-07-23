@@ -35,3 +35,16 @@
 - Refactored helper functions to make them cursor-aware
 - Learned why separating helper functions from handler functions improves maintainability
 - Improved input validation while editing expressions in the middle of the string
+
+## Day 6
+
+- Learned how to use `localStorage` to persist data between browser sessions
+- Used `JSON.stringify()` to convert JavaScript arrays into strings before storing them
+- Used `JSON.parse()` to restore stored data back into JavaScript objects
+- Implemented a reusable rendering function that rebuilds the UI from application state
+- Learned why rendering should depend on data rather than manually updating the DOM in multiple places
+- Used event delegation with `closest()` to handle clicks on dynamically created history items
+- Learned how `data-*` attributes (`dataset`) can associate DOM elements with JavaScript data
+- Added initialization logic (`loadHistory()`) to restore application state when the page loads
+- Implemented a maximum history size to prevent unlimited growth of stored data
+- Improved separation of responsibilities by keeping calculator logic and history management in separate files
