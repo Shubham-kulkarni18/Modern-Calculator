@@ -39,13 +39,14 @@ This project is being developed incrementally to strengthen my understanding of 
 - ✅ Click history items to reload expressions
 - ✅ Clear history
 - ✅ Automatic history limit (50 calculations)
+- ✅ Light / Dark Theme
+- ✅ Theme persistence using Local Storage
 
 
 ---
 
 ## Planned Features
 
-- 🌗 Light/Dark theme
 - 📱 Better mobile experience
 - ➗ Advanced percentage calculations
 - 🧮 Scientific calculator mode
@@ -66,10 +67,12 @@ This project is being developed incrementally to strengthen my understanding of 
 
 ```
 Calculator/
+Calculator/
 │── index.html
 │── style.css
 │── script.js
 │── history.js
+│── theme.js
 │── README.md
 └── TIL.md
 ```
@@ -101,6 +104,10 @@ This project is helping me practice:
 - Data Persistence
 - Event Delegation
 - State Synchronization
+- CSS Variables
+- Theme Management
+- Local Storage
+- UI State Persistence
 
 ---
 
@@ -116,19 +123,22 @@ This project is helping me practice:
 | Keyboard Support | ✅ Completed |
 | Cursor Editing  | ✅ Completed |
 | Calculation History | ✅ Completed |
-| Theme Support | ⏳ Next|
-| Scientific Mode | ⏳ Planned |
+| Theme Support | ✅ Completed |
+| Custom Expression Parser |⏳ Next |
 
 ---
 
 ## Future Improvements
 
-- 📜 Calculation history
-- 🌗 Light/Dark theme
-- 📱 Better mobile experience
-- ➗ Percentage (`%`) support
-- 🧮 Scientific calculator mode
-- 🚀 Replace `eval()` with a custom expression parser
+## 🚀 Planned Features
+
+## 🚀 Planned Features
+
+- 🔄 Replace `eval()` with a custom expression parser
+- 📱 Improve mobile responsiveness
+- ⌨️ More keyboard shortcuts and accessibility improvements
+- ✨ Additional UI/UX polish
+
 
 ---
 

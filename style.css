@@ -1,8 +1,45 @@
 /* Import a modern font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
 /* CSS Variables */
 :root{
+
+    /* Backgrounds */
+    --bg-color:#f4f4f4;
+    --calculator-bg:#ffffff;
+    --display-bg:#f0f0f0;
+
+    /* Buttons */
+    --button-bg:#e5e5e5;
+    --button-hover:#d8d8d8;
+    --button-active:#cfcfcf;
+
+    /* Accent Colours */
+    --operator:#ff9800;
+    --equal:#00b894;
+
+    /* Text */
+    --text:#222222;
+
+    /* History */
+    --history-bg:#ffffff;
+    --history-hover:#ececec;
+
+    /* Shadow */
+    --shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+body.dark-theme{
+
     --bg-color:#121212;
     --calculator-bg:#1f1f1f;
     --display-bg:#2d2d2d;
@@ -15,22 +52,24 @@
     --equal:#00b894;
 
     --text:#ffffff;
+
+    --history-bg:#1f1f1f;
+    --history-hover:rgba(255,255,255,.08);
+
+    --shadow:0 15px 30px rgba(0,0,0,.35);
+
 }
 
-/* Remove default spacing */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
-}
 
 /* Body */
 
 body{
 
     background:var(--bg-color);
+
+    transition:
+    background .3s,
+    color .3s;
 
     display:flex;
 
@@ -53,8 +92,51 @@ body{
 
     border-radius:20px;
 
-    box-shadow:
-    0 15px 30px rgba(0,0,0,.35);
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+}
+.theme-toggle{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:var(--button-bg);
+
+    color:var(--text);
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:
+        background .3s,
+        color .3s,
+        transform .2s;
+
+}
+
+.theme-toggle:hover{
+
+    background:var(--button-hover);
+
+}
+
+.theme-toggle:active{
+
+    transform:scale(.95);
+
 }
 
 /* Display */
@@ -82,6 +164,14 @@ body{
     padding:15px;
 
     margin-bottom:20px;
+
+    *{
+    box-sizing:border-box;
+}
+
+    transition:
+    background .3s,
+    color .3s;
 }
 
 /* Button Grid */
@@ -107,13 +197,16 @@ button{
 
     background:var(--button-bg);
 
-    color:white;
+    color:var(--text);
 
     font-size:1.2rem;
 
     cursor:pointer;
 
-    transition:.2s;
+    transition:
+        background .3s,
+        color .3s,
+        transform .2s;
 }
 
 /* Hover */
@@ -162,13 +255,19 @@ button:active{
     width:100%;
     max-width:420px;
 
-    background:#1f1f1f;
+    background:var(--history-bg);
+
+    color:var(--text);
 
     border-radius:15px;
 
     padding:15px;
 
     box-sizing:border-box;
+    
+    transition:
+    background .3s,
+    color .3s;
 }
 
 .history-header{
@@ -191,16 +290,38 @@ button:active{
 
 #clear-history{
 
+    height:40px;
+
+    padding:0 16px;
+
     border:none;
 
-    padding:8px 15px;
+    border-radius:10px;
 
-    border-radius:8px;
+    background:var(--button-bg);
+
+    color:var(--text);
 
     cursor:pointer;
 
-    font-size:14px;
+    transition:
+        background .3s,
+        color .3s,
+        transform .2s;
 }
+
+#clear-history:hover{
+
+    background:var(--button-hover);
+
+}
+
+#clear-history:active{
+
+    transform:scale(.95);
+
+}
+
 
 #history-list{
 
@@ -224,6 +345,16 @@ button:active{
     margin:20px 0;
 }
 
+.history-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
 .history-item{
 
     display:flex;
@@ -239,10 +370,6 @@ button:active{
     cursor:pointer;
 }
 
-.history-item:hover{
-
-    background:rgba(255,255,255,0.08);
-}
 
 .history-expression{
 

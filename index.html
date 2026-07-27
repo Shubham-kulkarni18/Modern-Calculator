@@ -16,13 +16,22 @@
 </head>
 
 <body>
-
+    
     <div class="calculator-container">
+        
+        
         
         <div class="history-panel">
 
             <div class="history-header">
                 <h3>History</h3>
+                
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    title="Toggle Theme">
+                    🌙
+                </button>
 
                 <button id="clear-history">
                     Clear
@@ -45,6 +54,7 @@
             <input
                 type="text"
                 id="display"
+                readonly
             >
 
             <div class="buttons">
@@ -83,6 +93,7 @@
 
 <script src="script.js"></script>
 <script src="history.js"></script>
+<script src="theme.js"></script>
 
 </body>
 </html>

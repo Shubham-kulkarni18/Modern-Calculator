@@ -48,3 +48,14 @@
 - Added initialization logic (`loadHistory()`) to restore application state when the page loads
 - Implemented a maximum history size to prevent unlimited growth of stored data
 - Improved separation of responsibilities by keeping calculator logic and history management in separate files
+
+## Day 7
+
+- Learned how CSS Variables (`:root`) can be used to build scalable themes
+- Used CSS custom properties to separate design values from component styles
+- Implemented Light and Dark themes without duplicating CSS
+- Learned how `classList.add()` and `classList.remove()` can switch application themes
+- Persisted the selected theme using `localStorage`
+- Restored the user's preferred theme during application initialization
+- Improved project structure by separating theme logic into `theme.js`
+- Designed a reusable state management pattern (Load → Apply → Save)
