@@ -41,6 +41,13 @@ This project is being developed incrementally to strengthen my understanding of 
 - ✅ Automatic history limit (50 calculations)
 - ✅ Light / Dark Theme
 - ✅ Theme persistence using Local Storage
+- ✅ Custom expression parser (without eval())
+- ✅ Expression preprocessing
+- ✅ Infix to Postfix conversion (Shunting Yard Algorithm)
+- ✅ Custom Postfix Evaluation Engine
+- ✅ Unary minus support
+- ✅ Implicit multiplication support
+- ✅ Parentheses support
 
 
 ---
@@ -48,9 +55,7 @@ This project is being developed incrementally to strengthen my understanding of 
 ## Planned Features
 
 - 📱 Better mobile experience
-- ➗ Advanced percentage calculations
 - 🧮 Scientific calculator mode
-- 🚀 Replace `eval()` with a custom expression parser
 
 ---
 
@@ -77,7 +82,34 @@ Calculator/
 └── TIL.md
 ```
 
+
+## ⚙️ Expression Evaluation Pipeline
+
+Instead of relying on JavaScript's `eval()`, the calculator evaluates expressions using a custom parser.
+
+Expression
+        ↓
+Preprocessor
+        ↓
+Tokenizer
+        ↓
+Shunting Yard Algorithm
+        ↓
+Postfix Expression
+        ↓
+Stack Based Evaluator
+        ↓
+Final Result
 ---
+
+## 🧠 Algorithms Used
+
+- Shunting Yard Algorithm
+- Stack-based Postfix Evaluation
+- Expression Tokenization
+- Expression Preprocessing
+- Parentheses Matching
+
 
 ## Learning Goals
 
@@ -108,6 +140,15 @@ This project is helping me practice:
 - Theme Management
 - Local Storage
 - UI State Persistence
+- Decimal Validation
+- Unary Minus Support
+- Implicit Multiplication
+- Percentage Support
+- Automatic Leading Zero
+- Error Handling
+- Parentheses Validation
+- Custom Expression Parser
+- No use of eval()
 
 ---
 

@@ -59,3 +59,20 @@
 - Restored the user's preferred theme during application initialization
 - Improved project structure by separating theme logic into `theme.js`
 - Designed a reusable state management pattern (Load → Apply → Save)
+
+## Day 8 -- Custom Expression Parsing
+
+Today I implemented a complete expression evaluation engine without using JavaScript's `eval()`.
+
+Learned concepts:
+
+- Expression preprocessing
+- Unary minus handling
+- Implicit multiplication
+- Tokenization
+- Shunting Yard Algorithm
+- Postfix evaluation using stacks
+- Parsing arithmetic expressions safely
+- Designing helper functions for parser construction
+
+One important realization was that parsing mathematical expressions is much easier after converting them into postfix notation, because operator precedence and parentheses are already resolved.

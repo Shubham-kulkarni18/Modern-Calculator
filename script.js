@@ -56,6 +56,18 @@ function resetCalculator() {
     updateDisplay();
 }
 
+function getCursorPosition(){
+    return display.selectionStart;
+}
+
+function setCursorPosition(position){
+
+    display.focus();
+
+    display.setSelectionRange(position, position);
+
+}
+
 function getCharacterBeforeCursor(){
 
     if(cursorPosition===0)
@@ -76,6 +88,30 @@ function getCurrentNumber(){
 
     return parts[parts.length-1];
 }
+function getNumberAtCursor(){
+
+    const cursor = display.selectionStart;
+
+    let left = cursor;
+    let right = cursor;
+
+    while(
+        left > 0 &&
+        (isDigit(expression[left-1]) || expression[left-1] === '.')
+    ){
+        left--;
+    }
+
+    while(
+        right < expression.length &&
+        (isDigit(expression[right]) || expression[right] === '.')
+    ){
+        right++;
+    }
+
+    return expression.slice(left,right);
+
+}
 
 function showError() {
     expression = "";
@@ -87,16 +123,22 @@ function showError() {
     display.focus();
 }
 
-function insertAtCursor(value){
+function insertAtCursor(text){
+
+    const start = display.selectionStart;
+    const end = display.selectionEnd;
 
     expression =
-        expression.slice(0, cursorPosition) +
-        value +
-        expression.slice(cursorPosition);
-
-    cursorPosition += value.length;
+        expression.slice(0, start) +
+        text +
+        expression.slice(end);
 
     updateDisplay();
+
+    const newCursor = start + text.length;
+
+    setCursorPosition(newCursor);
+
 }
 
 
@@ -195,7 +237,7 @@ function handleMinus() {
         return;
     }
 
-    if (prev === "." || prev === ")")
+    if (prev === "." )
         return;
 
     insertAtCursor("-");
@@ -235,7 +277,7 @@ function handleDecimal() {
     const prev = getCharacterBeforeCursor();
     const next = getCharacterAfterCursor();
 
-    const current = getCurrentNumber();
+    const current = getNumberAtCursor();
 
     if (
         current.includes(".") ||
@@ -295,22 +337,34 @@ function handleBinaryOperator(val) {
 }
 function removeCharAfterCursor(){
 
-    if(cursorPosition===expression.length)
+    const start = display.selectionStart;
+    const end = display.selectionEnd;
+
+    if(start !== end){
+
+        expression =
+            expression.slice(0,start) +
+            expression.slice(end);
+
+        updateDisplay();
+
+        setCursorPosition(start);
+
         return;
+    }
 
-    const deletedChar = expression[cursorPosition];
-
-    if(deletedChar==="(")
-        openBrackets--;
-
-    else if(deletedChar===")")
-        openBrackets++;
+    if(start === expression.length){
+        return;
+    }
 
     expression =
-        expression.slice(0,cursorPosition) +
-        expression.slice(cursorPosition+1);
+        expression.slice(0,start) +
+        expression.slice(start+1);
 
     updateDisplay();
+
+    setCursorPosition(start);
+
 }
 
 function handlePercentage() {
@@ -370,9 +424,7 @@ function handleEqual(){
 
         const originalExpression = expression;
 
-        const processedExpression = preprocessPercentage(expression);
-
-        const result = String(eval(processedExpression));
+        const result = evaluateExpression(expression).toString();
 
         saveCalculation(originalExpression, result);
 
@@ -386,35 +438,37 @@ function handleEqual(){
         showError();
     }
 }
-function removeCharAtCursor() {
+function removeCharAtCursor(){
 
-    if(cursorPosition===0) {
+    const start = display.selectionStart;
+    const end = display.selectionEnd;
+
+    if(start !== end){
+
+        expression =
+            expression.slice(0,start) +
+            expression.slice(end);
+
+        updateDisplay();
+
+        setCursorPosition(start);
+
+        return;
+    }
+
+    if(start === 0){
         updateDisplay();
         return;
     }
 
-    const deletedChar = expression[cursorPosition - 1];
-
-    if (deletedChar === "(")
-        openBrackets--;
-
-    if (deletedChar === ")")
-        openBrackets++;
-
     expression =
-        expression.slice(0,cursorPosition-1) +
-        expression.slice(cursorPosition);
-
-    cursorPosition--;
+        expression.slice(0,start-1) +
+        expression.slice(start);
 
     updateDisplay();
-}
 
-function preprocessPercentage(expr) {
-    return expr.replace(
-        /(\d+(\.\d+)?)%/g,
-        (_, num) => String(Number(num) / 100)
-    );
+    setCursorPosition(start-1);
+
 }
 
 function handleInput(value){
@@ -493,6 +547,10 @@ function handleKeyboardInput(key){
 
 // ===== Event Listeners =====
 
+display.addEventListener("keydown", (e) => {
+    e.preventDefault();
+});
+
 calculator.addEventListener("click",(event)=>{
 
     if(event.target.tagName!=="BUTTON")
@@ -540,3 +598,19 @@ display.addEventListener("keyup", syncCursor);
 display.addEventListener("select", syncCursor);
 
 display.addEventListener("input", syncCursor);
+
+display.addEventListener("paste",(e)=>{
+
+    e.preventDefault();
+
+    const pasted =
+        (e.clipboardData || window.clipboardData)
+        .getData("text");
+
+    if(!/^[0-9+\-*/().%\s]+$/.test(pasted)){
+        return;
+    }
+
+    insertAtCursor(pasted);
+
+});
