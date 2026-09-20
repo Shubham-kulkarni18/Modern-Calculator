@@ -1,72 +1,46 @@
-const themeToggle =
-    document.getElementById("theme-toggle");
+const themeToggle = document.getElementById("theme-toggle");
 
 const DARK_THEME = "dark";
-
 const LIGHT_THEME = "light";
 
-function applyTheme(theme){
-
-    if(theme === DARK_THEME){
-
-        document.body.classList.add("dark-theme");
-
+function applyTheme(theme) {
+    if (theme === LIGHT_THEME) {
+        document.body.classList.add("light-theme");
+        if (themeToggle) {
+            themeToggle.textContent = "🌙";
+            themeToggle.setAttribute("title", "Switch to Dark Theme");
+        }
+    } else {
+        document.body.classList.remove("light-theme");
+        if (themeToggle) {
+            themeToggle.textContent = "☀️";
+            themeToggle.setAttribute("title", "Switch to Light Theme");
+        }
     }
-    else{
-
-        document.body.classList.remove("dark-theme");
-
-    }
-
 }
 
-function saveTheme(theme){
-
-    localStorage.setItem(
-        "calculatorTheme",
-        theme
-    );
-
+function saveTheme(theme) {
+    localStorage.setItem("calculatorTheme", theme);
 }
 
-function loadTheme(){
-
-    const savedTheme =
-        localStorage.getItem("calculatorTheme");
-
-    if(savedTheme){
-
+function loadTheme() {
+    const savedTheme = localStorage.getItem("calculatorTheme");
+    if (savedTheme) {
         applyTheme(savedTheme);
-
-    }
-
-}
-
-function handleThemeToggle(){
-
-    const isDark =
-        document.body.classList.contains("dark-theme");
-
-    if(isDark){
-
-        applyTheme(LIGHT_THEME);
-
-        saveTheme(LIGHT_THEME);
-
-    }
-    else{
-
+    } else {
         applyTheme(DARK_THEME);
-
-        saveTheme(DARK_THEME);
-
     }
-
 }
 
-themeToggle.addEventListener(
-    "click",
-    handleThemeToggle
-);
+function handleThemeToggle() {
+    const isLight = document.body.classList.contains("light-theme");
+    const newTheme = isLight ? DARK_THEME : LIGHT_THEME;
+    applyTheme(newTheme);
+    saveTheme(newTheme);
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", handleThemeToggle);
+}
 
 loadTheme();

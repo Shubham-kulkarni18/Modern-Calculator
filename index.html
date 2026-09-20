@@ -2,64 +2,31 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Modern Calculator</title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     
     <div class="calculator-container">
         
-        
-        
-        <div class="history-panel">
-
-            <div class="history-header">
-                <h3>History</h3>
-                
-                <button
-                    id="theme-toggle"
-                    class="theme-toggle"
-                    title="Toggle Theme">
-                    🌙
-                </button>
-
-                <button id="clear-history">
-                    Clear
-                </button>
-
-            </div>
-
-            <div id="history-list">
-
-                <p class="empty-history">
-                    No calculations yet
-                </p>
-
-            </div>
-
-        </div>
-
         <div class="calculator">
+            
+            <div class="calculator-header">
+                <span class="calculator-title">Calculator</span>
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">🌙</button>
+            </div>
 
-            <input
-                type="text"
-                id="display"
-            >
+            <input type="text" id="display" readonly placeholder="0">
 
             <div class="buttons">
-
-                <button class="operator">AC</button>
-                <button class="operator">DEL</button>
+                <button class="operator btn-clear">AC</button>
+                <button class="operator btn-del">DEL</button>
                 <button class="operator">(</button>
                 <button class="operator">)</button>
 
@@ -80,19 +47,30 @@
 
                 <button>0</button>
                 <button>.</button>
-                <button>%</button>
+                <button class="operator">%</button>
                 <button class="operator">+</button>
 
                 <button class="equal">=</button>
-
             </div>
 
         </div>
+
+        <div class="history-panel">
+            <div class="history-header">
+                <h3>History</h3>
+                <button id="clear-history">Clear</button>
+            </div>
+            <div id="history-list">
+                <p class="empty-history">No calculations yet</p>
+            </div>
+        </div>
+
     </div>
-<script src="parser.js"></script>
-<script src="script.js"></script>
-<script src="history.js"></script>
-<script src="theme.js"></script>
+
+    <script src="parser.js"></script>
+    <script src="script.js"></script>
+    <script src="history.js"></script>
+    <script src="theme.js"></script>
 
 </body>
 </html>

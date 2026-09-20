@@ -125,9 +125,18 @@ function findMatchingBracket(expression, index){
 
 function findPreviousOperator(expression,index){
     index--;
+    let brackets = 0;
     while(index >=0 ){
 
-        if(['-','+','*','/'].includes(expression[index])){
+        if(expression[index] === ')'){
+            brackets++;
+        }
+
+        else if(expression[index] === '('){
+            brackets--;
+        }
+
+        if(brackets === 0 && ['-','+','*','/'].includes(expression[index])){
 
             return {
                 operator: expression[index],
@@ -280,6 +289,8 @@ function preprocess(expression){
                 previousOperator.operator === '/'){
 
                     result += `(${info.number}/100)`;
+                    i = info.end + 1;
+                    continue;
                 }
 
                 else if(previousOperator.operator === '+'){
@@ -321,6 +332,14 @@ function preprocess(expression){
         }
 
 
+        else if(expression[i] === ')'){
+            result += ')';
+            if(i + 1 < expression.length && expression[i + 1] === '%'){
+                result += '/100';
+                i++;
+            }
+        }
+
         else if(isUnaryMinus(expression,i)){
             const next = expression[i + 1];
             if(isDigit(next) || next === '.'){
@@ -347,6 +366,9 @@ function preprocess(expression){
                 continue;
 
             }
+        }
+        else{
+            result += expression[i];
         }
     }
 

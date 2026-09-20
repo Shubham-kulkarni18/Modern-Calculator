@@ -53,6 +53,8 @@ function resetCalculator() {
     openBrackets = 0;
     justCalculated = false;
     cursorPosition = 0;
+    const subDisplay = document.getElementById("sub-display");
+    if (subDisplay) subDisplay.textContent = "";
     updateDisplay();
 }
 
@@ -425,6 +427,11 @@ function handleEqual(){
         const originalExpression = expression;
 
         const result = evaluateExpression(expression).toString();
+
+        const subDisplay = document.getElementById("sub-display");
+        if (subDisplay) {
+            subDisplay.textContent = originalExpression + " =";
+        }
 
         saveCalculation(originalExpression, result);
 
